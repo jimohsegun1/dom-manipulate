@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Images Grid</title>
+  <style>
+    body{
+        background-image: url(image11.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-blend-mode: color-burn;
+        background-color: rgba(0, 0, 0, 0.516);
+    }
+    .grid {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .grid div {
+        display: flex;
+    }
+    .grid-item {
+      height: 160px;
+      width: 160px;
+      background-color: #d7c9c952;
+      margin: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid">
+   <div>
+       <div class="grid-item"></div>
+       <div class="grid-item"></div>
+       <div class="grid-item"></div>
+       <div class="grid-item"></div>
+   </div> 
+   <div>
+       <div class="grid-item"></div>
+       <div class="grid-item"></div>
+       <div class="grid-item"></div>
+       <div class="grid-item"></div>
+   </div> 
+   <div>
+       <div class="grid-item"></div>
+       <div class="grid-item"></div>
+       <div class="grid-item"></div>
+       <div class="grid-item"></div>
+   </div> 
+   <div>
+       <div class="grid-item"></div>
+       <div class="grid-item"></div>
+       <div class="grid-item"></div>
+       <div class="grid-item"></div>
+   </div> 
+    
+  </div>
+
+  <script>
+    const images = [
+      'image1.jpg',
+      'image2.jpg',
+      'image3.jpg',
+      'image4.jpg',
+      'image5.jpg',
+      'image6.jpg',
+      'image7.jpg',
+      'image8.jpg',
+      'image9.jpg',
+      'image10.jpg',
+      'image11.jpg',
+      'image12.jpg'
+    ];
+    const gridItems = document.querySelectorAll('.grid-item');
+    gridItems.forEach((item) => {
+      item.addEventListener('mouseover', () => {
+        const randomIndex = Math.floor(Math.random() * images.length);
+        item.style.backgroundImage = `url(${images[randomIndex]})`;
+      });
+      item.addEventListener('mouseleave', () => {
+        item.style.backgroundImage = '';
+      });
+    });
+  </script>
+</body>
+</html>
